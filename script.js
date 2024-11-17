@@ -43,6 +43,7 @@ function ft_check(player) {
 		result.innerHTML = 'Draw';
 		info.style.display = 'flex';
 		document.querySelector('.game').style.display = 'none';
+		is_finish = 1;
 		return ;
 	}
 	in_check = 0;
@@ -51,24 +52,15 @@ function ft_check(player) {
 function ft_ai() {
 	if (is_finish === 1)
 		return ;
-	if (full === 9) {
-		document.querySelector('.game').style.display = 'none';
-		document.querySelector('.game-info').style.display = 'flex';
-		document.querySelector('.winner-alert').innerHTML = 'Draw';
-		return ;
-	}
 	let index = Math.floor(Math.random() * 9);
-	while (flags[index] != 0) {
+	while (flags[index] != 0)
 		index = Math.floor(Math.random() * 9);
-	}
 	console.log('AI');
 	flags[index] = 2;
-	if (team === 'X') {
+	if (team === 'X')
 		cells[index].style.backgroundImage = 'url("images/o.png")';
-	}
-	else if (team === 'O') {
+	else if (team === 'O')
 		cells[index].style.backgroundImage = 'url("images/x.png")';
-	}
 	full++;
 	cells[index].style.backgroundSize = 'cover';
 	your_turn = 1;
@@ -81,22 +73,14 @@ cells.forEach((cell, index) => {
 	  cell.addEventListener('click', () => {
 			if (in_check === 1 || is_finish === 1)
 				return;
-			if (full === 9) {
-				document.querySelector('.game').style.display = 'none';
-				document.querySelector('.game-info').style.display = 'flex';
-				document.querySelector('.winner-alert').innerHTML = 'Draw';
-				return ;
-			}
 			if (flags[index] != 0 || your_turn === 0)
 				return;
 			else {
 				  flags[index] = 1;
-				  if (team === 'X') {
+				  if (team === 'X')
 				  	cell.style.backgroundImage = 'url("images/x.png")';
-				  }
-				  else if (team === 'O') {
+				  else if (team === 'O')
 				  	cell.style.backgroundImage = 'url("images/o.png")';
-				  }
 				  cell.style.backgroundSize = 'cover';
 				  full++;
 				  your_turn = 0;
@@ -110,3 +94,17 @@ cells.forEach((cell, index) => {
 
   });
 });
+
+// function clear_all() {
+// 	flags = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+// 	team = 'x';
+// 	your_turn = 1;
+// 	full = 0;
+// 	in_check = 0;
+// 	is_finish = 0;
+// 	document.querySelector('.game').style.display = 'none';
+// 	document.querySelector('.game-info').style.display = 'none';
+// 	document.querySelector('.choose-player').style.display = 'flex';
+// 	for (let i = 0; i < 9; i++)
+// 		cells[i].style.backgroundImage = '';
+// }
