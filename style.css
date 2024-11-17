@@ -17,6 +17,85 @@ body{
 	align-items: center;
 }
 
+.choose-player{
+	width: 670px;
+	height: 200px;
+	border: 1px solid #fefffd;
+	background-color: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	border-radius: 10px;
+	position: absolute;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: 0 0 15px #fefffd;
+}
+
+.choose-player__title{
+	font-size: 32px;
+	font-weight: bolder;
+	color: rgb(246, 228, 255);
+}
+
+.choose-btn{
+	width: 80%;
+	height: 100px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.btn-class-name{
+	--primary: 255, 120, 255;
+	--secondary: 246, 228, 255;
+	width: 80px;
+	height: 50px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	user-select: none;
+	touch-action: manipulation;
+	outline: 2px solid rgb(var(--primary), .5);
+	border-radius: 10px;
+	position: relative;
+	transition: .3s;
+}
+
+.back {
+	background: rgb(var(--secondary));
+	border-radius: 10px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.front {
+	background: linear-gradient(0deg, rgba(var(--primary), .6) 20%, rgba(var(--primary)) 50%);
+	border-radius: 10px;
+	position: absolute;
+	border: 1px solid rgb(var(--secondary));
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+	font-weight: bold;
+	font-family: inherit;
+	transform: translateY(-10%);
+	transition: .15s;
+	color: rgb(246, 228, 255);
+  }
+
+  .btn-class-name:active .front {
+	transform: translateY(0%);
+  }
+
 .game{
 	width: 650px;
 	height: 650px;
@@ -25,11 +104,13 @@ body{
 	padding: 10px;
 	border-radius: 20px;
 	box-shadow: 0 0 100px #fefffd;
-	display: flex;
+	display: none;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	transition: 0.5s;
 }
+
 
 .game-board{
 	width: 100%;
@@ -40,10 +121,6 @@ body{
 	grid-gap: 10px;
 	background-color: transparent;
 	/* border: 1px solid #fff; */
-}
-
-.game-info{
-	display: none;
 }
 
 .game-board__row
@@ -58,4 +135,47 @@ body{
 	border: 5px solid #fefffd;
 	cursor: pointer;
 	border-radius: 5px;
+}
+
+.game-info{
+	position: absolute;
+	width: 360px;
+	height: 170px;
+	border: 1px solid #fefffd;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.1);
+	display: none;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+}
+
+.game-info h1{
+	font-size: 32px;
+	font-weight: bolder;
+	color: rgb(246, 228, 255);
+}
+
+.restart{
+	--primary: 255, 120, 255;
+	--secondary: 246, 228, 255;
+	width: 100px;
+	height: 50px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	user-select: none;
+	touch-action: manipulation;
+	outline: 2px solid rgb(var(--primary), .5);
+	border-radius: 10px;
+	position: relative;
+	transition: .3s;
+}
+
+.restart .front{
+	font-size: 1.2rem;
+}
+
+.restart:active .front {
+	transform: translateY(0%);
 }

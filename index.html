@@ -9,6 +9,19 @@
 </head>
 <body>
 	<div class="container">
+		<div class="choose-player">
+			<h2 class="choose-player__title">Choose your player</h2>
+			<div class="choose-btn">
+				<button class="btn-class-name" onclick="ft_choose('X')">
+					<span class="back"></span>
+					<span class="front">X</span>
+				</button>
+				<button class="btn-class-name" onclick="ft_choose('O')">
+					<span class="back"></span>
+					<span class="front">O</span>
+				</button>
+			</div>
+		</div>
 		<div class="game">
 			<div class="game-board">
 				<div class="game-board__row">
@@ -27,10 +40,13 @@
 					<div class="game-board__cell" data-cell></div>
 				</div>
 			</div>
-			<div class="game-info">
-				<div class="game-info__status" data-winner></div>
-				<button class="game-info__restart" data-restart>Restart</button>
-			</div>
+		</div>
+		<div class="game-info">
+			<h1 class="winner-alert">is win</h1>
+			<button class="restart" onclick="location.reload()">
+				<span class="back"></span>
+				<span class="front">Restart</span>
+			</button>
 		</div>
 	</div>
 	<script src="script.js"></script>
