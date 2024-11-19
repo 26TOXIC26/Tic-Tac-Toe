@@ -2,6 +2,13 @@ body{
 	font-family: Arial, sans-serif;
 	margin: 0;
 	padding: 0;
+	background-image: url('images/bg.png');
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
 }
 
 .container{
@@ -9,15 +16,34 @@ body{
 	height: 100vh;
 	margin: 0 auto;
 	/* padding: 0 20px; */
-	background-image: url('images/bg.png');
-	background-size: cover;
-	background-position: center;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
+
 .choose-player{
+	width: 670px;
+	height: 200px;
+	border: 1px solid #fefffd;
+	background-color: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	border-radius: 10px;
+	position: absolute;
+	display: none;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: 0 0 15px #fefffd;
+}
+
+.choose-player__title, .choose-level__title{
+	font-size: 32px;
+	font-weight: bolder;
+	color: rgb(246, 228, 255);
+}
+
+.choose-level{
 	width: 670px;
 	height: 200px;
 	border: 1px solid #fefffd;
@@ -30,12 +56,7 @@ body{
 	align-items: center;
 	flex-direction: column;
 	box-shadow: 0 0 15px #fefffd;
-}
 
-.choose-player__title{
-	font-size: 32px;
-	font-weight: bolder;
-	color: rgb(246, 228, 255);
 }
 
 .choose-btn{
@@ -90,13 +111,13 @@ body{
 	transform: translateY(-10%);
 	transition: .15s;
 	color: rgb(246, 228, 255);
-  }
+}
 
-  .btn-class-name:active .front {
+.btn-class-name:active .front {
 	transform: translateY(0%);
   }
 
-.game{
+  .game{
 	width: 650px;
 	height: 650px;
 	margin: 20px auto;
@@ -178,4 +199,26 @@ body{
 
 .restart:active .front {
 	transform: translateY(0%);
+}
+
+@media screen and (max-width: 768px){
+	body{
+		background-image: url('images/mobile_bg.png');
+	}
+	.container{
+		flex-direction: column;
+		height: 60ch;
+		/* background-color: black; */
+	}
+	.choose-player, .choose-level{
+		width: 90%;
+	}
+	.game{
+		width: 340px;
+		height: 340px;
+	}
+	.game-board__cell{
+		background-size: cover;
+		background-position: center;
+	}
 }
